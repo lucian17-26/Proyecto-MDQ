@@ -1,71 +1,274 @@
-*{
+* {
     margin: 0%;
     padding: 0%;
 }
-body{
-    background-color: black;
-} 
-footer{
-    height: 300px;
+
+body {
+    --color-bg: rgb(185, 179, 179);
+    --color-texto: black;
+    --cuadro-horario: gray;
 }
-.logo{
+
+body.dark-topic {
+    --color-bg: black;
+    --color-texto: white;
+    --cuadro-horario: white;
+
+
+}
+
+@media(prefers-color-scheme: dark) {
+    body {
+        --color-bg: black;
+        --color-texto: white;
+        --cuadro-horario: white;
+
+    }
+
+    body.light-topic {
+        --color-bg: rgb(185, 179, 179);
+        --color-texto: black;
+        --cuadro-horario: gray;
+
+    }
+}
+
+body {
+    background-color: var(--color-bg);
+}
+
+hr {
+    color: var(--color-texto);
+    margin: 20px 15% 0;
+    border: 1px solid;
+}
+
+/* EStilo de Boton para tema Oscuro/Claro */
+:root {
+    --switch-width: 40px;
+    --switch-height: 20px;
+    --circle-size: 16px;
+    --circle-padding: 3px;
+    --circle-bg: lightgray;
+    --circle-on-bg: lightgray;
+    /* --switch-on-bg: darkgray; */
+    --switch-bg: darkgray;
+}
+
+.switch {
+    width: var(--switch-width);
+    height: var(--switch-height);
+    border-radius: 100px;
+    cursor: pointer;
+    background: var(--switch-bg);
+    display: flex;
+    position: relative;
+    align-items: center;
+    transition: all 0.5s;
+}
+
+.switch::before {
+    content: "";
+    display: block;
+    background: var(--circle-bg);
+    width: var(--circle-size);
+    height: var(--circle-size);
+    border-radius: 50%;
+    position: absolute;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    left: var(--circle-padding);
+}
+
+.switch-input {
+    display: none;
+}
+
+.switch-input:checked+.switch {
+    background: var(--switch-bg);
+}
+
+.switch-input:checked+.switch::before {
+    background: var(--circle-on-bg);
+    left: calc((var(--switch-width) - var(--circle-size)) - var(--circle-padding));
+}
+
+
+/* Efecto de H1 para el titulo "MDQ ENTRENA */
+main {
+    background-color: black;
+    color: #fff;
+    font-family: 'FTY SKORZHEN NCV';
+    margin-bottom: 0%;
+}
+
+.titulo-animado {
+    position: relative;
+}
+
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+h1 {
+    background-color: #000;
+    font-size: 220px;
+    text-align: center;
+    font-weight: 400;
+    mix-blend-mode: multiply;
+    margin: 0%;
+    /* color:  rgba(135, 96, 45); */
+}
+
+@media (max-width: 1100px) {
+    h1{
+        font-size: 150px;
+    }
+    video{
+        height: 170px;
+    }
+}
+@media (max-width: 765px) {
+    h1{
+        font-size: 120px;
+    }
+    video{
+        height: 140px;
+    }
+}
+@media (max-width: 600px) {
+    h1{
+        font-size: 90px;
+    }
+    video{
+        height: 110px;
+    }
+}
+@media (max-width: 450px) {
+    h1{
+        font-size: 60px;
+    }
+    video{
+        height: 70px;
+    }
+}
+
+h2,
+h3,
+h4 {
+    font-family: 'FTY SKORZHEN NCV';
+    color: var(--color-texto);
+    text-align: center;
+    margin-top: 40px;
+}
+
+h5 {
+    font-family: 'FTY SKORZHEN NCV';
+    color: var(--color-texto);
+    margin-top: 40px;
+    margin-bottom: 20px;
+
+}
+
+li {
+    color: var(--color-texto);
+}
+
+p {
+    color: var(--color-texto);
+    margin: auto 40px;
+}
+
+/* ---------------------------------------------- */
+
+.navbar1 {
+    position: sticky;
+    top: 0%;
+
+}
+
+.logo {
     width: 60px;
     height: 60px;
 }
-.menu-color{
-    background: linear-gradient(45deg , black,rgb(17, 17, 17),rgba(255,106,45,255));
+
+/* ---------------------------Animacion de barra navegacion!!----------------------------------- */
+/* --------------------------------------------------------------------------------------------- */
+.menu-color {
+    background: linear-gradient(45deg, black, rgb(17, 17, 17), rgba(255, 106, 45, 255));
     background-size: 400% 400%;
     animation: cambiar 6s ease-in-out infinite;
 }
 
-@keyframes cambiar{
-    0%{background-position: 0 50%;}
-    50%{background-position: 100% 50%;}
-    100%{background-position: 0 50%;}
+@keyframes cambiar {
+    0% {
+        background-position: 0 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0 50%;
+    }
 }
-td{
-    background-color: aliceblue;
+
+td {
+    background-color: gray;
     margin: 3px;
     padding: 8px;
     text-align: center;
-    border: 1px solid black;
-    width: 150px;
+    width: auto;
+    font-family: sans-serif;
 }
-.parallax{
+
+/* -----------------------------Estilo de parallax de inicio!!------------------------------ */
+/* ----------------------------------------------------------------------------------------- */
+.parallax {
     background: #fff fixed no-repeat 50% 50%;
     background-size: cover;
 }
-#seccion1{
+
+#seccion1 {
     background-image: url('../imagenes/imagenFondo.jpg');
 }
-section{
-    width: 100%;
-    height: 500px;
-    padding: 0%;
+
+section {
+    aspect-ratio: 16/9;
+    margin-top: 0;
 }
 
 /* ------------------------------------Estilo de spinner!!------------------------------------ */
-.spinner{
+/* ------------------------------------------------------------------------------------------- */
+.spinner {
     position: relative;
     width: 25px;
     height: 25px;
     border-radius: 50%;
     margin: 10px;
-    
+
 }
+
 .spinner::before,
-.spinner::after{
+.spinner::after {
     content: "";
     position: absolute;
     border-radius: inherit;
 }
-.spinner:before{
+
+.spinner:before {
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(0deg ,rgba(255,106,45,255) 0%,white 100%);
+    background-image: linear-gradient(0deg, rgba(255, 106, 45, 255) 0%, white 100%);
     animation: spin .9s infinite linear;
 }
-.spinner:after{
+
+.spinner:after {
     width: 85%;
     height: 85%;
     background-color: black;
@@ -73,55 +276,86 @@ section{
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
 @keyframes spin {
-    to{
+    to {
         transform: rotate(360deg);
     }
 }
 
-/* Final de estilos de spinner */
-
-/* ------------------------------------Estilos de spinner-h2------------------------------------ */
-.spinner-h2{
+.spinner-h2 {
     display: flex;
     flex-direction: row;
     align-items: center;
     margin-top: 20px;
 }
 
+/* Final de estilos de spinner */
 /* ------------------------------------Estilos generales------------------------------------ */
-.estilo1{
-    margin: 5px 0;
-    
-}
-.estilo2{
-    margin: 30px 0;
-}
 
 /* Estilo de Titulos */
-h1,h2{
-    color: rgba(235,106,45,155);
+
+
+
+.cursor {
+    cursor: default;
 }
 
-.estilo3{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+.estilo4 {
+    border-bottom: 4px solid rgba(255, 106, 45, 255);
+}
+
+.estilo5 {
+    border-bottom: 2px solid rgba(255, 106, 45, 255);
+}
+
+.estilo6 {
+    border-top-left-radius: 15px;
+}
+
+.borde-cuadro {
+    border-bottom-left-radius: 15px;
+}
+
+.borde-cuadro1 {
+    border-bottom-right-radius: 15px;
+}
+
+.borde-cuadro2 {
+    border-top-right-radius: 15px;
+}
+
+.posicion-boton {
+    /* display: flex; */
+    /* flex-direction: row-reverse; */
+    margin-inline-start: 0%;
+    /* margin-left: 59%; */
+
 }
 
 /* ------------------------------------Estilos de Galeria------------------------------------ */
-.card{
-    width: 150px;
-    height: 200px;
-    /* background-color: #333; */
-    border-radius: 10px;
-    outline: 1px solid rgba(255,255,255, .5);
+.estilo3 {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-evenly;
+}
+
+.card {
+    width: 300px;
+    height: 250px;
+    background-color: #333;
+    border-radius: 15px;
+    outline: 1px solid rgba(255, 255, 255, .5);
     outline-offset: -8px;
-    box-shadow: 3px 3px 10px rgba(0,0,0, .1);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, .1);
     position: relative;
     overflow: hidden;
+
 }
-.card-imagen{
+
+.card-imagen {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -130,6 +364,24 @@ h1,h2{
     opacity: -6px;
     transition: transform .75s;
 }
-.card:hover .card-imagen{
-    transform: scale(1.15);
+
+.card:hover .card-imagen {
+    transform: scale(1.30);
+}
+
+.mapa {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.redes {
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+}
+
+.redes-footer {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 30px 0;
 }
