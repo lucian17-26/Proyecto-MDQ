@@ -156,6 +156,14 @@ h1 {
         height: 70px;
     }
 }
+@media (max-width: 320px) {
+    h1{
+        font-size: 30px;
+    }
+    video{
+        height: 40px;
+    }
+}
 
 h2,
 h3,
